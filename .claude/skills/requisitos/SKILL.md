@@ -1,9 +1,9 @@
 ---
 name: requisitos
-description: Entrevista o operador em rodadas curtas de múltipla escolha e escreve o documento de requisitos do MVP (ou de uma entrega nova) em docs/requisitos.md, para humanos, com RF/RN/RNF e fases de entrega; depois gera docs/apis/*.md e preenche a seção "Projeto" do CLAUDE.md da raiz. Use quando o operador pedir para iniciar, especificar ou descrever o projeto, fechar o escopo do MVP, levantar requisitos ou criar os docs, inclusive quando ele colar um briefing pronto.
+description: Entrevista o operador em rodadas curtas de múltipla escolha e escreve o documento de requisitos do projeto (ou de uma entrega nova) em docs/requisitos.md, para humanos, com RF/RN/RNF e fases de entrega; depois gera docs/apis/*.md e preenche a seção "Projeto" do CLAUDE.md da raiz. Use quando o operador pedir para iniciar, especificar ou descrever o projeto, fechar o escopo, levantar requisitos ou criar os docs, inclusive quando ele colar um briefing pronto.
 ---
 
-# Requisitos do MVP
+# Requisitos do projeto
 
 Objetivo: entrevistar o operador e fechar o documento de requisitos. Ele é lido por humanos (o operador, um sócio, um designer) e serve de entrada para a skill `prd`. **Aqui não se gera PRD, código nem tarefas de implementação.**
 
@@ -15,27 +15,27 @@ Objetivo: entrevistar o operador e fechar o documento de requisitos. Ele é lido
   - **Decidido**: tudo o que o operador já afirmou. Não pergunte de novo, mesmo que você faria diferente. Se ver um problema real numa decisão (custo, regra de loja, lei, contradição), registre em "Riscos e pendências" e avise no resumo final, sem reabrir a entrevista por isso.
   - **Em aberto**: os pontos que o operador listou como abertos, mais as lacunas reais que você achar com o checklist abaixo.
 - Se já existir `docs/requisitos.md`, pergunte: revisar o atual, acrescentar uma entrega nova ou começar do zero. Ao revisar ou acrescentar, preserve os IDs e continue a numeração.
-- Se já existe código funcionando, o escopo é a entrega nova, não o produto inteiro: resuma o que já existe em até 5 linhas no "Resumo", troque "MVP" pelo nome da entrega (ex.: "Requisitos: Faturamento") e leia stack e comandos do código em vez de perguntar.
+- Se já existe código funcionando, o escopo é a entrega nova, não o produto inteiro: resuma o que já existe em até 5 linhas no "Resumo", use o nome da entrega no título (ex.: "Requisitos: Faturamento") e leia stack e comandos do código em vez de perguntar.
 
 ### Checklist de lacunas
 
 Pergunte só o que se aplica ao produto e ainda não foi decidido. Lacuna real é aquilo sem o qual não dá para escrever uma regra ou um critério de aceite.
 
-- **Produto:** problema, para quem, o que torna o produto diferente, roadmap depois do MVP.
+- **Produto:** problema, para quem, o que torna o produto diferente, roadmap depois desta entrega.
 - **Quem usa:** papéis (ex.: visitante sem login, usuário logado, admin) e o que cada um pode fazer.
-- **Escopo:** o que entra no MVP e o que fica de fora; limites do plano gratuito, se houver.
+- **Escopo:** o que entra no escopo e o que fica de fora; limites do plano gratuito, se houver.
 - **Contas:** formas de login, sair, excluir conta, o que acontece com os dados na exclusão.
 - **Multiempresa (B2B):** conta da empresa, convite de membros, isolamento de dados entre clientes, permissões por papel.
 - **Conteúdo inicial:** quem cadastra os dados, quanto conteúdo precisa existir antes de lançar.
 - **Onboarding:** quais passos, o que perguntar, se dá para pular.
 - **Notificações:** canais (push, e-mail, web push, WhatsApp, SMS), eventos, quem recebe, antecedência, horário de silêncio, limite por dia.
-- **Monetização e cobrança:** o que entra no MVP (anúncios, plano pago, assinatura, afiliados) e o custo de cada canal pago; se há cobrança, planos, trial, meio de pagamento, inadimplência e nota fiscal.
+- **Monetização e cobrança:** o que entra no escopo (anúncios, plano pago, assinatura, afiliados) e o custo de cada canal pago; se há cobrança, planos, trial, meio de pagamento, inadimplência e nota fiscal.
 - **Datas e horários:** fusos, formato, datas "a confirmar".
 - **Plataformas e lançamento:** web, Android, iOS, bot, CLI; exigências das lojas (ex.: Sign in with Apple quando há login social no iOS, exclusão de conta dentro do app, teste fechado no Google Play para contas pessoais novas); domínio.
 - **Legal:** lei de dados aplicável (LGPD; GDPR se atender a UE), termos de uso e política de privacidade (quem escreve, onde ficam), consentimento. Pule se o produto não guarda dado pessoal.
 - **Integrações externas:** quais e para quê, incluindo as que ninguém citou mas o produto precisa (ex.: provedor de e-mail para envio de código de login).
 - **Operação:** disponibilidade esperada, backups, monitoramento.
-- **Sucesso:** 2 a 4 métricas simples para saber se o MVP deu certo.
+- **Sucesso:** 2 a 4 métricas simples para saber se a entrega deu certo.
 - **Técnico:** só stack e infraestrutura, se ainda não estiverem decididas. Detalhe de implementação fica para o PRD.
 
 ## 2. Entrevistar em rodadas curtas
@@ -43,7 +43,7 @@ Pergunte só o que se aplica ao produto e ainda não foi decidido. Lacuna real �
 - Use a ferramenta de perguntas com opções (`AskUserQuestion`). **No máximo 4 perguntas por rodada**, cada uma com 2 a 4 opções.
 - A **opção recomendada vem primeiro**, com "(Recomendado)" no rótulo. Na descrição de cada opção, diga em uma frase a consequência (custo, prazo, complexidade, regra de loja). O operador sempre pode responder em texto livre.
 - Se o operador deu só uma ideia curta, sem escopo: antes das rodadas, proponha em texto um rascunho com papéis, 5 a 10 funcionalidades candidatas e o que fica fora, e peça para ele cortar ou acrescentar. Só depois siga com as rodadas.
-- Ordem das rodadas: primeiro o que muda o escopo (o que entra no MVP, monetização, canais), depois as regras (limites, horários, onboarding), por fim lançamento, legal e métricas.
+- Ordem das rodadas: primeiro o que muda o escopo (o que entra no escopo, monetização, canais), depois as regras (limites, horários, onboarding), por fim lançamento, legal e métricas.
 - **Ponto que o operador listou como aberto sempre vira pergunta.** Escopo e funcionalidades também precisam da confirmação dele. Só as lacunas menores que você mesmo achou podem ser resolvidas com um padrão sensato: escolha, registre como decisão e mostre no resumo final.
 - Quando o operador responder "segue sua sugestão" (ou equivalente), registre a opção recomendada como decisão. Se ele não especificar a pergunta, vale para a rodada inteira.
 - Antes de cada nova rodada, diga em uma linha o que ficou decidido na anterior.
@@ -63,28 +63,28 @@ O caminho é sempre `docs/requisitos.md`, mesmo que o briefing cite outro nome: 
 - IDs são estáveis: na primeira versão, numere em sequência. Depois, item novo recebe o próximo número livre, mesmo fora de ordem, e ID removido não é reaproveitado. Vale para RF, RN e RNF.
 - Critério de aceite no formato **"Dado que… quando… então…"**: verificável, sem ambiguidade, com números e nomes concretos. Proibido: "rápido", "bonito", "intuitivo", "fácil", "adequado", "amigável", "etc.".
 - Use tabela quando comparar coisas (ex.: quem recebe qual notificação, o que cada papel pode fazer).
-- Deixe explícito o que está **fora do MVP**. O roadmap posterior aparece só ali.
-- Decisão que não vira funcionalidade nem é técnica vai em uma linha no lugar certo, sem criar seção nova: design e identidade em "Requisitos gerais"; monetização e acordos comerciais em "Escopo" (o que entra ou fica fora do MVP).
+- Deixe explícito o que está **fora do escopo**. O roadmap posterior aparece só ali.
+- Decisão que não vira funcionalidade nem é técnica vai em uma linha no lugar certo, sem criar seção nova: design e identidade em "Requisitos gerais"; monetização e acordos comerciais em "Escopo" (o que entra ou fica fora do escopo).
 - Seções que não se aplicam ao produto (ex.: notificações) saem do documento, sem escrever "não se aplica". Renumere as seções restantes; por isso, cite o documento sempre por ID ou nome de seção, nunca por número.
 
 ### Estrutura
 
 ```markdown
-# [Nome do produto]: Requisitos do MVP
+# [Nome do produto]: Requisitos
 
 ## 1. Resumo
 Até 5 linhas: o que é, para quem, que dor resolve.
 
-## 2. Objetivo do MVP e como saber se deu certo
+## 2. Objetivo e como saber se deu certo
 Objetivo em 1 a 2 frases. Métricas simples, com meta e prazo quando houver (ex.: "500 usuários com alerta ligado em 60 dias").
 
 ## 3. Quem usa
 Um tópico por papel (ex.: Visitante sem login, Usuário logado, Admin) com o que ele pode fazer. Tabela se ficar mais claro.
 
 ## 4. Escopo
-### Entra no MVP
+### Entra no escopo
 Lista curta, citando os RF.
-### Fora do MVP
+### Fora do escopo
 Uma linha por item. Agrupe por versão (V2, V3, depois) só se o operador deu um roadmap; não invente versões.
 
 ## 5. Funcionalidades
@@ -116,7 +116,7 @@ Uma linha por decisão. Única seção onde termo técnico de implementação é
 Riscos com o que fazer a respeito; pendências com dono ou prazo; suposições feitas sem confirmação do operador; decisões do operador com problema que você apontou.
 
 ## 11. Fases de entrega
-Como o MVP vai ser construído, em fatias para os PRDs. Fase 0 = a menor coisa útil que roda de ponta a ponta (numa entrega sobre código existente, ponta a ponta sobre o sistema atual). Para cada fase: objetivo em 1 linha, RFs e RNFs incluídos, critério de pronto em 1 linha.
+Como o escopo vai ser construído, em fatias para os PRDs. Fase 0 = a menor coisa útil que roda de ponta a ponta (numa entrega sobre código existente, ponta a ponta sobre o sistema atual). Para cada fase: objetivo em 1 linha, RFs e RNFs incluídos, critério de pronto em 1 linha.
 ```
 
 ### Antes de mostrar
@@ -127,7 +127,7 @@ Releia o documento e confira:
 - toda linha da tabela de notificações cita uma RN que existe;
 - nenhum critério usa palavra proibida nem depende de opinião;
 - não há jargão de implementação fora de "Decisões técnicas";
-- não há nada do roadmap posterior fora de "Fora do MVP";
+- não há nada do roadmap posterior fora de "Fora do escopo";
 - o tamanho está dentro do limite. Se passou, corte justificativas e repetições e agrupe RFs. Se ainda passar, mantenha regras e critérios e informe o tamanho no resumo.
 
 ## 4. Revisar com o operador

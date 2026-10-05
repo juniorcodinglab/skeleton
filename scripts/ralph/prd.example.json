@@ -1,8 +1,8 @@
 {
   "project": "Meu Projeto",
-  "branchName": "ralph/fase-0-mvp",
+  "branchName": "ralph/fase-0",
   "description": "Fase 0: menor versão que roda de ponta a ponta",
-  "sourcePrd": "tasks/prd-fase-0-mvp.md",
+  "sourcePrd": "tasks/prd-fase-0.md",
   "userStories": [
     {
       "id": "US-001",
