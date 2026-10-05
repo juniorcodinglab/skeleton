@@ -1,0 +1,49 @@
+{
+  "project": "Meu Projeto",
+  "branchName": "ralph/fase-0-mvp",
+  "description": "Fase 0: menor versão que roda de ponta a ponta",
+  "sourcePrd": "tasks/prd-fase-0-mvp.md",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Setup do projeto",
+      "description": "Como desenvolvedor, quero a estrutura do projeto com lint, typecheck e testes configurados para que as próximas stories tenham verificações de qualidade.",
+      "acceptanceCriteria": [
+        "Estrutura de pastas e dependências conforme \"Decisões técnicas\" em docs/requisitos.md",
+        "Lint, typecheck e testes configurados, com um teste trivial passando",
+        ".gitignore cobre dependências, builds e arquivos de ambiente",
+        "Seção Projeto do CLAUDE.md da raiz atualizada com os comandos reais"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Tabela de usuários",
+      "description": "Como sistema, quero persistir usuários para que eles possam se cadastrar.",
+      "acceptanceCriteria": [
+        "Migration cria a tabela users com id, email (único) e created_at",
+        "RN-03 (email único) coberta por teste",
+        "Lint, typecheck e testes passam"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Tela de cadastro",
+      "description": "Como visitante, quero me cadastrar com email e senha.",
+      "acceptanceCriteria": [
+        "Formulário em /cadastro com email e senha",
+        "Email duplicado mostra mensagem de erro (RN-03)",
+        "Lint, typecheck e testes passam",
+        "Verificado no navegador com a skill dev-browser"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
